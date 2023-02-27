@@ -1,0 +1,17 @@
+current directory: /home/guantai/Downloads/Phase3/Air-BNB/backend/vendor/bundle/ruby/3.0.0/gems/thin-1.8.1/ext/thin_parser
+/usr/bin/ruby3.0 -I /usr/lib/ruby/vendor_ruby -r ./siteconf20230227-106794-zryo5e.rb extconf.rb
+checking for main() in -lc... yes
+creating Makefile
+
+current directory: /home/guantai/Downloads/Phase3/Air-BNB/backend/vendor/bundle/ruby/3.0.0/gems/thin-1.8.1/ext/thin_parser
+make DESTDIR\= clean
+
+current directory: /home/guantai/Downloads/Phase3/Air-BNB/backend/vendor/bundle/ruby/3.0.0/gems/thin-1.8.1/ext/thin_parser
+make DESTDIR\=
+compiling parser.c
+compiling thin.c
+linking shared-object thin_parser.so
+
+current directory: /home/guantai/Downloads/Phase3/Air-BNB/backend/vendor/bundle/ruby/3.0.0/gems/thin-1.8.1/ext/thin_parser
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 thin_parser.so ./.gem.20230227-106794-lx21ep
