@@ -4,7 +4,7 @@ import HomePage from './components/HomePage';
 import AirBnbPage from './components/AirBnbPage';
 import HotelPage from './components/HotelPage';
 import AccountPage from './components/AccountPage';
-
+import AddBnb from './components/AddBnb';
 
 function App() {
   return (
@@ -16,6 +16,7 @@ function App() {
      <Route path="/home" element={<HomePage/>}/>
     <Route path="/airbnb" element={<AirBnbPage/>}/>
     <Route path="/hotel" element={<HotelPage/>}/>
+    <Route path="/addbnb" element={<AddBnb/>}/>
     <Route path="/account" element={<AccountPage/>}/>
       </Routes>
 

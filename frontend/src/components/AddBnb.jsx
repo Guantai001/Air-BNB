@@ -1,15 +1,15 @@
 import React from "react";
 import NavBar from "./NavBar";
 
-function AccountPage() {
+function AddPage() {
     return (
         <div>
         <NavBar/>
         <h1
         style={{textAlign:"center", marginTop:"100px"}}
-        >Account Page</h1>
+        >Add bnb1</h1>
         </div>
     );
     }
 
-export default AccountPage;
+export default AddPage;

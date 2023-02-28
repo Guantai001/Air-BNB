@@ -1,11 +1,15 @@
 import React from "react";
 import NavBar from "./NavBar";
+import AirBnbCard from "./AirBnbCard";
 
 function AirBnbPage() {
     return (
         <div>
         <NavBar/>
-        <h1>AirBnb Page</h1>
+       
+        <div className="container mt-5 pt-5">
+  <AirBnbCard />
+        </div>
         </div>
     );
     }

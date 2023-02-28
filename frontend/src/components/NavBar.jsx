@@ -2,56 +2,92 @@ import React, { useState } from 'react'
 import { Link } from "react-scroll";
 import { navLinksdata } from "./index"
 
+function NavBar({handleOnSubmit}) {
+  
+    const [showMenu, setShowMenu]=useState(false)
+    //slide menu function
+  
+  
+    const activeTab = (e) => {
+  
+      const navLinks = document.querySelectorAll('.nav__link');
+      navLinks.forEach((link) => {
+          link.classList.remove('active');
+      });
+      e.target.classList.add('active');
+  }
+  
 
-const NavBar = ({theme, toggleTheme}) => {
-  //style the side menu
 
-  const [showMenu, setShowMenu]=useState(false)
-  //slide menu function
+  return ( 
+    <div className="navBar
 
+     ">
+        <header className="l-header ">
+    <nav
+      className="navbar 
+      background__nav
+        navbar-expand-lg
+        bd-grid 
+     
+      "
+    >
+      <div className="container-fluid">
+      
+        <a
+        
+          className="navbar-brand"
+          style={{ fontSize: "2rem", fontWeight: "semi-bold" }}
+          href="/"
+        >
+        GuanBnb
+        </a>
+        <div
+          className="collapse navbar-collapse "
+          style={{ fontWeight: "bold" }}
+          id="navbarTogglerDemo03"
+        >
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0 ">
 
-  const activeTab = (e) => {
-
-    const navLinks = document.querySelectorAll('.nav__link');
-    navLinks.forEach((link) => {
-        link.classList.remove('active');
-    });
-    e.target.classList.add('active');
-}
-
-
-  return (
-    <div className="navBar">
-        <header class="l-header">
-        <nav class="nav bd-grid">
-       <div>
-        <a href="#" class="nav__logo">Guantai</a>
-     </div>
-
-      <div class="nav__menu" id="nav-menu">
-        <ul  class="nav__list">
-        <li class="nav__item"><a href="#home" 
-                        onClick={activeTab}
-                        class="nav__link active">Home</a></li>
-                        <li class="nav__item"><a href="#about"
-                            onClick={activeTab}
-
-                         class="nav__link">About</a></li>
-                        <li class="nav__item"><a href="#skills" 
-                       onClick={activeTab}
-                        class="nav__link">Services</a></li>
-                        <li class="nav__item"><a href="#work" 
-                        onClick={activeTab}
-                        class="nav__link">Work</a></li>
-                        <li class="nav__item"><a href="#contact"
-                        onClick={activeTab}
-                         class="nav__link">Contact</a></li>
-        </ul>
-
+            <li className="nav-item  mx-5 px-4">
+              <a className="nav-link nav__link active" 
+              onClick={activeTab}
+              href="/">
+                Home
+              </a>
+            </li>
+            <li className="nav-item mx-5 px-4">
+              <a className="nav-link nav__link" 
+              onClick={activeTab}
+              href="/airbnb">
+                AirBnbs
+              </a>
+            </li>
+            <li className="nav-item nav__item mx-5 px-4 ">
+              <a className="nav-link  nav__link" 
+              onClick={activeTab}
+              href="/hotel">
+                Hotels
+              </a>
+            </li>
+            <li className="nav-item mx-5 px-4 ">
+              <a className="nav-link  nav__link" 
+              onClick={activeTab}
+              href="/addbnb">
+                AddBnB
+              </a>
+            </li>
+            <li className="nav-item mx-5 px-4">
+              <a className="nav-link  nav__link" 
+              onClick={activeTab}
+              href="/account">
+                Account
+              </a>
+            </li>
+          </ul>
         </div>
 
-
-      <div class="nav__toggle"
+        <div class="nav__toggle"
                  id="nav-toggle">
                     <i class='bx bx-menu'
                      onClick={() => setShowMenu(!showMenu)}
@@ -80,16 +116,16 @@ const NavBar = ({theme, toggleTheme}) => {
 
                                 </li>
                             );
-                        })}
-       
-   
+                        })}   
                     </ul>
                 </div>
 
-        
-                </div>
 
-      </nav>
+
+            </div>
+        </div>
+    </nav>
+
     </header>
     </div>
   );
