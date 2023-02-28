@@ -49,28 +49,28 @@ function NavBar({handleOnSubmit}) {
         >
           <ul className="navbar-nav me-auto mb-2 mb-lg-0 ">
 
-            <li className="nav-item  mx-3 px-4">
+            <li className="nav-item  mx-5 px-5">
               <a className="nav-link nav__link active" 
               onClick={activeTab}
               href="/">
                 Home
               </a>
             </li>
-            <li className="nav-item mx-3 px-4">
+            <li className="nav-item mx-3 px-3">
               <a className="nav-link nav__link" 
               onClick={activeTab}
               href="/airbnb">
                 AirBnbs
               </a>
             </li>
-            <li className="nav-item nav__item mx-5 px-4 ">
+            <li className="nav-item nav__item mx-5 px-3 ">
               <a className="nav-link  nav__link" 
               onClick={activeTab}
               href="/hotel">
                 Hotels
               </a>
             </li>
-            <li className="nav-item mx-3 px-4 ">
+            <li className="nav-item mx-3 px-3 ">
               <a className="nav-link  nav__link" 
               onClick={activeTab}
               href="/addbnb">

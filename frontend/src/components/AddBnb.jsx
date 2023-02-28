@@ -1,7 +1,31 @@
-import React from "react";
+import React,{useEffect,useState} from "react";
 import NavBar from "./NavBar";
 
 function AddBnb() {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     return (
         <div>
         <NavBar/>

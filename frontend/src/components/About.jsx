@@ -18,7 +18,7 @@ function About() {
 
         {/* add an image below*/}
         < div className="row">
-            <div className="col-12">
+            <div className="col-12  ">
                 <img  src={Pic}className="img-fluid"alt="Responsive image"/>
             </div>
         </div>

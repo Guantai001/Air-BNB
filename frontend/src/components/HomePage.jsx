@@ -4,6 +4,7 @@ import photo from  "./photoa/background.jpg"
 
 function HomePage() {
   return (
+    <>
     <div id = "landingpage">
       <NavBar/>
       <div id = "landingpage"
@@ -14,7 +15,7 @@ function HomePage() {
             backgroundRepeat: "no-repeat",
             height: "100vh",
             width: "100%",
-            position: "fixed",
+            position: "absolute",
             zIndex: "-1",
             top: "0",
         }}
@@ -41,9 +42,13 @@ function HomePage() {
                     </div>
                 </div>
             </div>
+         
             </div>
+           
 
     </div>
+    
+    </>
     
   );
 }
