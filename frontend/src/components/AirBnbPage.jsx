@@ -4,15 +4,15 @@ import AirBnbCard from "./AirBnbCard";
 
 function AirBnbPage() {
 
-    const [airbnbs, setAirbnbs] = UseState([]);
+    // const [airbnbs, setAirbnbs] = UseState([]);
 
-    useEffect(() => {
-        fetch("http://localhost:3001/airbnbs")
-        .then((res) => res.json())
-        .then((data) => {
-            setAirbnbs(data);
-        });
-    }, []);
+    // useEffect(() => {
+    //     fetch("http://localhost:3001/airbnbs")
+    //     .then((res) => res.json())
+    //     .then((data) => {
+    //         setAirbnbs(data);
+    //     });
+    // }, []);
 
 
 
@@ -22,8 +22,6 @@ function AirBnbPage() {
        
         <div className="container mt-5 pt-5">
   <AirBnbCard  
-    airbnbs={airbnbs}
-    setAirbnbs={setAirbnbs}
   />
         </div>
         </div>
