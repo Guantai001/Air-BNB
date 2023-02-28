@@ -24,6 +24,11 @@ export const navLinksdata = [
         _id: 1005,
         title: "Add Bnb",
         link: "addbnb",
-    }
+    },
+    {
+        _id: 1006,
+        title: "About",
+        link: "about",
+    },
 
   ];
