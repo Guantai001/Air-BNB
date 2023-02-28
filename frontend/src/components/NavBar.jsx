@@ -1,77 +1,97 @@
-import React from "react";
+import React, { useState } from 'react'
+import { Link } from "react-scroll";
+import { navLinksdata } from "./index"
 
-function NavBar({handleOnSubmit}) {
-  
-  return ( 
-    <nav
-      className="navbar navbar-expand-lg bg-body-tertiary"
-      style={{ backgroundColor: "#C7DCD9" }}
-    >
-      <div className="container-fluid">
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarTogglerDemo03"
-          aria-controls="navbarTogglerDemo03"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <a
-        
-          className="navbar-brand"
-          style={{ fontSize: "3rem", fontWeight: "bold" }}
-          href="/"
-        >
-          MovieFlix
-        </a>
-        <div
-          className="collapse navbar-collapse "
-          style={{ fontWeight: "bold" }}
-          id="navbarTogglerDemo03"
-        >
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0 ">
 
-            <li className="nav-item  mx-5 px-5">
-              <a className="nav-link" href="/">
-                Home
-              </a>
-            </li>
-            <li className="nav-item mx-5 px-5 ">
-              <a className="nav-link" href="/airbnb">
-                AirBnb
-              </a>
-            </li>
-            <li className="nav-item mx-5 px-5 ">
-              <a className="nav-link" href="/hotel">
-                Hotels
-              </a>
-            </li>
+const NavBar = ({theme, toggleTheme}) => {
+  //style the side menu
 
-            <li className="nav-item mx-5 px-5 ">
-              <a className="nav-link" href="/account">
-                Account
-              </a>
-            </li>
-          </ul>
-          
-          {/* <form className="d-flex" role="search" onSubmit={handleOnSubmit}>
-            <input
-              id="inputText"
-              className="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button className="btn btn-outline-dark" type="submit">
-              🔍
-            </button>
-          </form> */}
+  const [showMenu, setShowMenu]=useState(false)
+  //slide menu function
+
+
+  const activeTab = (e) => {
+
+    const navLinks = document.querySelectorAll('.nav__link');
+    navLinks.forEach((link) => {
+        link.classList.remove('active');
+    });
+    e.target.classList.add('active');
+}
+
+
+  return (
+    <div className="navBar">
+        <header class="l-header">
+        <nav class="nav bd-grid">
+       <div>
+        <a href="#" class="nav__logo">Guantai</a>
+     </div>
+
+      <div class="nav__menu" id="nav-menu">
+        <ul  class="nav__list">
+        <li class="nav__item"><a href="#home" 
+                        onClick={activeTab}
+                        class="nav__link active">Home</a></li>
+                        <li class="nav__item"><a href="#about"
+                            onClick={activeTab}
+
+                         class="nav__link">About</a></li>
+                        <li class="nav__item"><a href="#skills" 
+                       onClick={activeTab}
+                        class="nav__link">Services</a></li>
+                        <li class="nav__item"><a href="#work" 
+                        onClick={activeTab}
+                        class="nav__link">Work</a></li>
+                        <li class="nav__item"><a href="#contact"
+                        onClick={activeTab}
+                         class="nav__link">Contact</a></li>
+        </ul>
+
         </div>
-      </div>
-    </nav>
+
+
+      <div class="nav__toggle"
+                 id="nav-toggle">
+                    <i class='bx bx-menu'
+                     onClick={() => setShowMenu(!showMenu)}
+                     ></i>
+
+               
+               {/* this is where the slide menu will appear */}
+                <div className={showMenu ? "nav__menu show" : "nav__menu"}>
+                    <ul className="nav__list">
+                        {navLinksdata.map((item, index) => {
+                            return (
+                                <li key={index} className="nav__item">
+                                    <Link
+                                        activeClass="active"
+                                        to={item.link}
+                                        spy={true}
+                                        smooth={true}
+                                        offset={-70}
+                                        duration={500}
+                                        className="nav__link"
+                                        onClick={() => setShowMenu(!showMenu)}
+                                    >
+                                        {item.title}
+                                    </Link>
+
+
+                                </li>
+                            );
+                        })}
+       
+   
+                    </ul>
+                </div>
+
+        
+                </div>
+
+      </nav>
+    </header>
+    </div>
   );
 }
 
