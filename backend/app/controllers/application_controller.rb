@@ -1,8 +1,11 @@
 class ApplicationController < Sinatra::Base
-    set :default_content_type, 'application/json'
-
-    get '/' do
-        { message: 'Hello World' }.to_json
+ 
+# get AirBnB
+    get '/airbnbs' do
+        @airbnbs = Airbnb.all
+        @airbnbs.to_json
     end
-    
-end
+ 
+
+
+  end
