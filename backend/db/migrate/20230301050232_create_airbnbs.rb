@@ -1,6 +1,7 @@
-class CreateAirbnbProperties < ActiveRecord::Migration[6.1]
+class CreateAirbnbs < ActiveRecord::Migration[6.1]
   def change
-    create_table :airbnb_properties do |t|
+
+    create_table :airbnbs do |t|
       t.string :name
       t.string :location
       t.integer :size
@@ -9,5 +10,6 @@ class CreateAirbnbProperties < ActiveRecord::Migration[6.1]
 
       t.timestamps
     end
+
   end
 end

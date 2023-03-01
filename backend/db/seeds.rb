@@ -25,33 +25,16 @@ puts "🌱 Seeding messages..."
 #   end
 
 # host
-host1 = Host.create!(
-    name: "John",
-    email: "jp@gmail.com"
-)
+host1 = Host.create(name: "John", email: "jp@gmail.com")
 
-# airbnb_property
-airbnb_property1 = AirbnbProperty.create!(
-    name: "John's place",
-    location: "New York",
-    size: 1,
-    price: 100,
-    host_id: host1.id
-)
+# airbnb
+airbnb1 = Airbnb.create(name: "John's place", host_id: host1.id)
 
 # description
-description1 = Description.create!(
-    description: "John's place is a great place to stay",
-    host_id: host1.id,
-    airbnb_property_id: airbnb_property1.id
-)
+description1 = Description.create(description: "This is a great place", host_id: host1.id, airbnb_id: airbnb1.id)
 
 # image
-image1 = Image.create!(
-    url: "https://images.unsplash.com/photo-1558987905-8b6c7b9f1c9c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
-    airbnb_property_id: airbnb_property1.id
-)
-
+image1 = Image.create(url: "https://www.google.com", airbnb_id: airbnb1.id)
 
   
 

@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_01_041249) do
+ActiveRecord::Schema.define(version: 2023_03_01_050306) do
 
-  create_table "airbnb_properties", force: :cascade do |t|
+  create_table "airbnbs", force: :cascade do |t|
     t.string "name"
     t.string "location"
     t.integer "size"
@@ -20,16 +20,16 @@ ActiveRecord::Schema.define(version: 2023_03_01_041249) do
     t.integer "host_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["host_id"], name: "index_airbnb_properties_on_host_id"
+    t.index ["host_id"], name: "index_airbnbs_on_host_id"
   end
 
   create_table "descriptions", force: :cascade do |t|
     t.text "description"
-    t.integer "airbnb_property_id", null: false
+    t.integer "airbnb_id", null: false
     t.integer "host_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["airbnb_property_id"], name: "index_descriptions_on_airbnb_property_id"
+    t.index ["airbnb_id"], name: "index_descriptions_on_airbnb_id"
     t.index ["host_id"], name: "index_descriptions_on_host_id"
   end
 
@@ -42,14 +42,14 @@ ActiveRecord::Schema.define(version: 2023_03_01_041249) do
 
   create_table "images", force: :cascade do |t|
     t.string "url"
-    t.integer "airbnb_property_id", null: false
+    t.integer "airbnb_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["airbnb_property_id"], name: "index_images_on_airbnb_property_id"
+    t.index ["airbnb_id"], name: "index_images_on_airbnb_id"
   end
 
-  add_foreign_key "airbnb_properties", "hosts"
-  add_foreign_key "descriptions", "airbnb_properties"
+  add_foreign_key "airbnbs", "hosts"
+  add_foreign_key "descriptions", "airbnbs"
   add_foreign_key "descriptions", "hosts"
-  add_foreign_key "images", "airbnb_properties"
+  add_foreign_key "images", "airbnbs"
 end

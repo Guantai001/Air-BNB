@@ -1,3 +1,3 @@
 class Image < ActiveRecord::Base
-    belongs_to :airbnb_property
+    belongs_to :airbnb
   end

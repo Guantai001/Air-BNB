@@ -1,9 +1,32 @@
 class ApplicationController < Sinatra::Base
- 
+#  get "/hosts" do
+#     @hosts = Host.all
+#     # tojson
+#     @hosts.to_json
+#   end
 
-  get '/hosts' do
-    @hosts = Host.all
-    @hosts.to_json
+get "/airbnbs" do
+    @airbnbs = Airbnb.all
+    # tojson
+    @airbnbs.to_json
   end
 
-  end
+    get "/airbnbs/:id" do
+        @airbnb = Airbnb.find(params[:id])
+        @airbnb.to_json
+    end
+
+    # post
+    post "/airbnbs" do
+        airbnb = Airbnb.create(
+            name: params[:name],
+            location: params[:location],
+            size: params[:size],
+            price: params[:price],
+            host_id: params[:host_id]
+        )
+        airbnb.to_json
+    end
+   
+        
+end
