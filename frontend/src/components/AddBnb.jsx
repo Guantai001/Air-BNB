@@ -1,4 +1,4 @@
-import React,{useEffect,useState} from "react";
+import React, { useEffect, useState } from "react";
 import NavBar from "./NavBar";
 
 function AddBnb() {
@@ -28,50 +28,54 @@ function AddBnb() {
 
     return (
         <div>
-        <NavBar/>
-     
-     <div className="container mt-5 pt-5">
-        <form>
-            <div className="form-group ">
-                <label for="exampleFormControlInput1">Location</label>
-                <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="Location"/>
+            <NavBar />
 
-                <label for="exampleFormControlInput1">Price</label>
-                <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="Price"/>
+            <div className="container mt-5 pt-5">
 
-                <label for="exampleFormControlInput1">Room Size</label>
-                <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="Room Size"/>
+                {/* create a form with Input with class w-50 */}
+                {/* should input the user name, email, airbnb name, location, size price */}
+                {/* create a button with class btn btn-primary w-50 */}
+                {/* should submit the form */}
 
-                <label for="exampleFormControlInput1">Description</label>
-                <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="Description"/>
+                <form className="w-50 mx-auto">
+                    <div className="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" className="form-control" id="name" placeholder="Enter name" />
 
-                <label for="exampleFormControlInput1">Add Button</label>
-                <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="Add Button"/>
+                        < label for="email">Email</label>
+                        <input type="email" className="form-control" id="email" placeholder="Enter email" />
 
-                <label for="exampleFormControlInput1">Image1</label>
-                <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="Image"/>
+                        <label for="airbnb">Airbnb</label>
+                        <input type="text" className="form-control" id="airbnb" placeholder="Enter airbnb" />
 
-                <label for="exampleFormControlInput1">Image2</label>
-                <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="Image"/>
+                        <label for="location">Location</label>
+                        <input type="text" className="form-control" id="location" placeholder="Enter location" />
 
-                <label for="exampleFormControlInput1">Image3</label>
-                <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="Image"/>
+                        <label for="size">Size</label>
+                        <input type="text" className="form-control" id="size" placeholder="Enter size" />
 
-                <label for="exampleFormControlInput1">Image4</label>
-                <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="Image"/>
+                        <label for="price">Price</label>
+                        <input type="text" className="form-control" id="price" placeholder="Enter price" />
+
+                        {/* 2 images*/}
+                        <label for="image1">Image 1</label>
+                        <input type="file" className="form-control" id="image1" placeholder="Enter image" />
+
+                        <label for="image2">Image 2</label>
+                        <input type="file" className="form-control" id="image2" placeholder="Enter image" />
+                        
+
+                        <button type="submit" className="btn btn-primary w-25 mt-3">Submit</button>
+
+                    </div>
+                </form>
 
 
-< button type="submit" className="btn btn-primary">Submit</button>
 
             </div>
-</form>
-
-
-
-        </div>
         </div>
     );
-    }
+}
 
 
 

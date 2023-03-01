@@ -1,11 +1,9 @@
 class ApplicationController < Sinatra::Base
  
-# get AirBnB
-    get '/airbnbs' do
-        @airbnbs = Airbnb.all
-        @airbnbs.to_json
-    end
- 
 
+  get '/hosts' do
+    @hosts = Host.all
+    @hosts.to_json
+  end
 
   end

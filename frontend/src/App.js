@@ -7,11 +7,11 @@ import AccountPage from './components/AccountPage';
 import AddBnb from './components/AddBnb';
 import About from './components/About';
 
+
 function App() {
   return (
    <>
     <BrowserRouter>
-
       <Routes>
       <Route path="/" element={<Navigate to="/home"/>} />
       <Route path="/home" element={<HomePage/>}/>
@@ -21,8 +21,8 @@ function App() {
       <Route path="/about" element={<About/>}/>
       <Route path="/account" element={<AccountPage/>}/>
       </Routes>
-
     </BrowserRouter>
+
    </>
   );
 }

@@ -1,48 +1,59 @@
-puts "🌱 Seeding data..."
+puts "🌱 Seeding messages..."
 
-# Create a Host
-host = Host.create(
-    name: "John Doe",
-    email: "johnDoe@gmail.com",
-    phone: "123-456-7890"
+# # app/models/host.rb
+# class Host < ActiveRecord::Base
+#     has_many :airbnb_properties
+#     has_many :descriptions
+#   end
+  
+#   # app/models/airbnb_property.rb
+#   class AirbnbProperty < ActiveRecord::Base
+#     belongs_to :host
+#     has_many :descriptions
+#     has_many :images
+#   end
+  
+#   # app/models/description.rb
+#   class Description < ActiveRecord::Base
+#     belongs_to :host
+#     belongs_to :airbnb_property
+#   end
+  
+#   # app/models/image.rb
+#   class Image < ActiveRecord::Base
+#     belongs_to :airbnb_property
+#   end
+
+# host
+host1 = Host.create!(
+    name: "John",
+    email: "jp@gmail.com"
 )
 
-# Create an Airbnb
-airbnb = Airbnb.create(
-    title: "John's Airbnb",
-    description: "This is a great place to stay!",
-    address: "123 Main St, New York, NY 10001",
+# airbnb_property
+airbnb_property1 = AirbnbProperty.create!(
+    name: "John's place",
+    location: "New York",
+    size: 1,
     price: 100,
-    host: host
+    host_id: host1.id
 )
 
-# Create a Room
-room = Room.create(
-    name: "John's Room",
-    description: "This is a great room to stay in!",
-    max_guests: 2,
-    airbnb: airbnb
+# description
+description1 = Description.create!(
+    description: "John's place is a great place to stay",
+    host_id: host1.id,
+    airbnb_property_id: airbnb_property1.id
 )
 
-# Create a User
-user = User.create(
-    name: "Jane Doe",
-    email: "janedoe@gmail.com",
-    password: "password"
+# image
+image1 = Image.create!(
+    url: "https://images.unsplash.com/photo-1558987905-8b6c7b9f1c9c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
+    airbnb_property_id: airbnb_property1.id
 )
 
-# Create a Review
-review = Review.create(
-    body: "This is a great place to stay!",
-    rating: 5,
-    user: user,
-    room: room
-)
 
-# Create an Image
-image = Image.create(
-    url: "https://images.unsplash.com/photo-1614691364389-1b5b1b5e1b1a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
-    caption: "This is a great place to stay!",
-    room: room
-)
-puts "🌱 Done seeding!"
+  
+
+puts "✅ Done seeding!"
+

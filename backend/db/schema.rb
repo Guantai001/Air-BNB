@@ -10,68 +10,46 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_02_28_152547) do
+ActiveRecord::Schema.define(version: 2023_03_01_041249) do
 
-  create_table "airbnbs", force: :cascade do |t|
-    t.string "title"
-    t.text "description"
-    t.string "address"
-    t.decimal "price"
+  create_table "airbnb_properties", force: :cascade do |t|
+    t.string "name"
+    t.string "location"
+    t.integer "size"
+    t.integer "price"
     t.integer "host_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["host_id"], name: "index_airbnbs_on_host_id"
+    t.index ["host_id"], name: "index_airbnb_properties_on_host_id"
+  end
+
+  create_table "descriptions", force: :cascade do |t|
+    t.text "description"
+    t.integer "airbnb_property_id", null: false
+    t.integer "host_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["airbnb_property_id"], name: "index_descriptions_on_airbnb_property_id"
+    t.index ["host_id"], name: "index_descriptions_on_host_id"
   end
 
   create_table "hosts", force: :cascade do |t|
     t.string "name"
     t.string "email"
-    t.string "phone"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "images", force: :cascade do |t|
     t.string "url"
-    t.string "caption"
-    t.integer "room_id", null: false
+    t.integer "airbnb_property_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["room_id"], name: "index_images_on_room_id"
+    t.index ["airbnb_property_id"], name: "index_images_on_airbnb_property_id"
   end
 
-  create_table "reviews", force: :cascade do |t|
-    t.text "body"
-    t.integer "rating"
-    t.integer "user_id", null: false
-    t.integer "room_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["room_id"], name: "index_reviews_on_room_id"
-    t.index ["user_id"], name: "index_reviews_on_user_id"
-  end
-
-  create_table "rooms", force: :cascade do |t|
-    t.string "name"
-    t.text "description"
-    t.integer "max_guests"
-    t.integer "airbnb_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["airbnb_id"], name: "index_rooms_on_airbnb_id"
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.string "password"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  add_foreign_key "airbnbs", "hosts"
-  add_foreign_key "images", "rooms"
-  add_foreign_key "reviews", "rooms"
-  add_foreign_key "reviews", "users"
-  add_foreign_key "rooms", "airbnbs"
+  add_foreign_key "airbnb_properties", "hosts"
+  add_foreign_key "descriptions", "airbnb_properties"
+  add_foreign_key "descriptions", "hosts"
+  add_foreign_key "images", "airbnb_properties"
 end

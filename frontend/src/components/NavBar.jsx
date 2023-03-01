@@ -47,7 +47,6 @@ function NavBar({handleOnSubmit}) {
 
         <li className="nav-item  mx-5 px-5"><a className="nav-link " class = "nav__link active" onClick={activeTab}href="/">Home</a></li>
         <li className="nav-item mx-3 px-3"><a className="nav-link" class="nav__link" onClick={activeTab}href="/airbnb">AirBnbs</a></li>
-        <li className="nav-item nav__item mx-5 px-3 "><a className="nav-link" class="nav__link" onClick={activeTab}href="/hotel">Hotels</a></li>
         <li className="nav-item mx-3 px-3 "><a className="nav-link" class="nav__link"onClick={activeTab}href="/addbnb">AddBnB</a></li>
        <li className="nav-item mx-3 px-3 "> <a className="nav-link "class="nav__link" onClick={activeTab}href="/about">About</a></li>
        <li className="nav-item mx-3 px-4"><a className="nav-link  nav__link" onClick={activeTab}href="/account">Account</a></li>
