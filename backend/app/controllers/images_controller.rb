@@ -16,10 +16,13 @@ class ImagesController < ApplicationController
     # post
 
     post "/images" do
-        image = Image.create(
-            image: params[:image],
-            airbnb_id: params[:airbnb_id])
-        image.to_json
+    
+        img = Image.create(
+            url: params[:url],
+            airbnb_id: params[:airbnb_id]
+        )
+        img.to_json
+    
     end
 
 end

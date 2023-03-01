@@ -8,12 +8,12 @@ class ApplicationController < Sinatra::Base
 get "/airbnbs" do
     @airbnbs = Airbnb.all
     # tojson
-    @airbnbs.to_json
+    @airbnbs.to_json(include: [:host, :images, :descriptions])
   end
 
     get "/airbnbs/:id" do
         @airbnb = Airbnb.find(params[:id])
-        @airbnb.to_json
+        @airbnb.to_json(include: [:host, :images, :descriptions])
     end
 
     # post
@@ -25,7 +25,7 @@ get "/airbnbs" do
             price: params[:price],
             host_id: params[:host_id]
         )
-        airbnb.to_json
+        airbnb.to_json(include: [:host, :images, :descriptions])
     end
    
         

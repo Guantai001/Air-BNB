@@ -32,10 +32,7 @@ function AddBnb() {
 
             <div className="container mt-5 pt-5">
 
-                {/* create a form with Input with class w-50 */}
-                {/* should input the user name, email, airbnb name, location, size price */}
-                {/* create a button with class btn btn-primary w-50 */}
-                {/* should submit the form */}
+               
 
                 <form className="w-50 mx-auto">
                     <div className="form-group">

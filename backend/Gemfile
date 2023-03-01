@@ -20,6 +20,8 @@ gem "rake"
 
 gem 'bcrypt'
 
+gem 'rack-cors'
+
 # Provides functionality to interact with a SQLite3 database
 # https://github.com/sparklemotion/sqlite3-ruby
 gem "sqlite3", "~> 1.4"
@@ -35,6 +37,8 @@ group :development do
   gem "faker", "~> 2.18"
 
   gem "puma", "~> 5.5"
+
+gem 'thin', '~> 1.8', '>= 1.8.1'
 
   # Auto-reload the server when files are changed
   # https://github.com/alexch/rerun
