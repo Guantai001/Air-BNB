@@ -21,12 +21,14 @@ function AirBnbPage() {
         <div>
         <NavBar/>
        {/* get data to from the api and map and then pass it to the card */}
+       < div className="container">
         <div className="row mt-5">
             {data.map((data) => (
                 <div className="col-md-4">
                     <AirBnbCard data={data} />
                     </div>
             ))}
+        </div>
         </div>
         </div>
     );

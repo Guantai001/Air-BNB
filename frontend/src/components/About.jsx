@@ -1,12 +1,7 @@
 import React from "react";
 import NavBar from "./NavBar";
 import Pic from  "./photoa/abtimg.jpg"
-// create a function that comtaints the about page
-// it should have  some images and text
-// it should also have the services that we offer
 
-// it should also have a contact form
-// it should also have a footer
 
 function About() {
     return (

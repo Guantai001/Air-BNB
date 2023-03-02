@@ -1,42 +1,47 @@
 puts "🌱 Seeding messages..."
 
-# # app/models/host.rb
-# class Host < ActiveRecord::Base
-#     has_many :airbnb_properties
-#     has_many :descriptions
-#   end
-  
-#   # app/models/airbnb_property.rb
-#   class AirbnbProperty < ActiveRecord::Base
-#     belongs_to :host
-#     has_many :descriptions
-#     has_many :images
-#   end
-  
-#   # app/models/description.rb
-#   class Description < ActiveRecord::Base
-#     belongs_to :host
-#     belongs_to :airbnb_property
-#   end
-  
-#   # app/models/image.rb
-#   class Image < ActiveRecord::Base
-#     belongs_to :airbnb_property
-#   end
+# def change
+#     create_table :airbnbs do |t|
+#       t.string :name
+#       t.string :location
+#       t.string :description
+#       t.integer :size
+#       t.integer :price
+#       t.string :image
 
-# host
-host1 = Host.create(name: "John", email: "jp@gmail.com")
+#       t.references :admin, null: false, foreign_key: true
 
-# airbnb
-airbnb1 = Airbnb.create(name: "John's place", host_id: host1.id)
+#       t.timestamps
+#     end
 
-# description
-description1 = Description.create(description: "This is a great place", host_id: host1.id, airbnb_id: airbnb1.id)
+# create a seed for an airbnb form the above data
+admin = Admin.create(
+  name: "John Smith",
+  email: "johnsmith@example.com",
+ 
+)
 
-# image
-image1 = Image.create(url: "https://www.google.com", airbnb_id: airbnb1.id)
+airbnb = Airbnb.create(
+  name: "The Cozy Cottage",
+  location: "New York, NY",
+  description: "This is a cozy cottage in the heart of New York City. It is a 2 bedroom, 1 bathroom home with a full kitchen and living room. It is located in the heart of the city, close to all the major attractions. It is a great place to stay if you are looking for a quiet place to relax and enjoy the city.",
+  size: 2,
+  price: 100,
+  image: "https://images.unsplash.com/photo-1589998059171-988d887df646?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Ym9va3xlbnwwfHwwfHw%3D&w=1000&q=80",
+  admin_id: admin.id
+)
 
-  
+review = Review.create(
+  name: "Jane Doe",
+  email: "janedoe@example.com",
+  review: "This is a great place to stay. It is very clean and the host is very friendly. I would definitely stay here again.",
+  rating: 5,
+  airbnb_id: airbnb.id
+)
+
+
+
+
 
 puts "✅ Done seeding!"
 
