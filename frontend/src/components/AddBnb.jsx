@@ -17,9 +17,7 @@ function AddBnb() {
     const [allData, setAllData] = useState([]);
    
 
-    const inputAdminHandler = (e) => {
-        setAdmin(e.target.value);
-    };
+
     const inputTitleHandler = (e) => {
         setTitle(e.target.value);
     };
@@ -76,24 +74,21 @@ function AddBnb() {
   return (
     <div>
       <NavBar />
-      <div className="container mt-5 pt-5">
+      <div 
+      style={
+        {
+          backgroundColor: "white",
+
+        }
+      }
+      className="container mt-5 pt-5">
         <form
             // onSubmit={(e) => submitHandler(e)}
             onSubmit={submitHandler}
          className="w-50 mx-auto">
           <div className="form-group">
 
-            <label htmlFor="admin">Admin</label>
-            <input
-                type="text"
-                className="form-control"
-                id="admin"
-                name="admin"
-                value={admin}
-                onChange={inputAdminHandler}
-                placeholder="Enter admin"
-            />
-
+         
             <label htmlFor="airbnb">Airbnb</label>
             <input
               type="text"

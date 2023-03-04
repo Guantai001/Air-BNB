@@ -1,6 +1,6 @@
 import React  from 'react'
 
-function NavBar({handleOnSubmit}) {
+function NavBar() {
 
     const activeTab = (e) => {
         
@@ -46,6 +46,7 @@ function NavBar({handleOnSubmit}) {
           <ul className="nav__list navbar-nav me-auto mb-2 mb-lg-0 ">
 
         <li className="nav-item  mx-5 px-5"><a className="nav-link " class = "nav__link active" onClick={activeTab}href="/">Home</a></li>
+        <li className="nav-item mx-2 px-3"><a className="nav-link" class="nav__link" onClick={activeTab}href="/booking">Bookings</a></li>
         <li className="nav-item mx-2 px-3"><a className="nav-link" class="nav__link" onClick={activeTab}href="/airbnb">AirBnbs</a></li>
         <li className="nav-item mx-2 px-3 "><a className="nav-link" class="nav__link"onClick={activeTab}href="/addbnb">AddBnB</a></li>
        <li className="nav-item mx-2 px-3 "> <a className="nav-link "class="nav__link" onClick={activeTab}href="/about">About</a></li>

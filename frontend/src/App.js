@@ -6,6 +6,7 @@ import HotelPage from './components/HotelPage';
 import AccountPage from './components/AccountPage';
 import AddBnb from './components/AddBnb';
 import About from './components/About';
+import Booking from './components/Booking';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
       <Route path="/hotel" element={<HotelPage/>}/>
       <Route path="/addbnb" element={<AddBnb/>}/>
       <Route path="/about" element={<About/>}/>
+      <Route path="/booking" element={<Booking/>}/>
       <Route path="/account" element={<AccountPage/>}/>
       </Routes>
     </BrowserRouter>

@@ -27,7 +27,7 @@ function AirBnbCard({ data}) {
             width: "24rem",
             height: "500px",
             overflow: "hidden",
-            backgroundColor: "#fcecd4",
+            backgroundColor: "#white",
             boxShadow : "0 4px 8px 0 rgba(0,0,0,0.2)",
  
              }}>
@@ -38,7 +38,7 @@ function AirBnbCard({ data}) {
             <div className="card-body"
             style={{
                 height: "200px",
-                color: "#f7b500",
+                color: "black",
         }}
 
             >
@@ -52,7 +52,7 @@ function AirBnbCard({ data}) {
                     <div className="col">
                         <button
                         style={
-                            {backgroundColor: "#f7b500",
+                            {backgroundColor: "#b95d3f",
                             color: "white",
                             border: "none",
                             borderRadius: "5px",
@@ -73,7 +73,7 @@ function AirBnbCard({ data}) {
                         <button 
 
                         style={
-                            {backgroundColor: "#f7b500",
+                            {backgroundColor: "#b95d3f",
                             color: "white",
                             border: "none",
                             borderRadius: "5px",
@@ -84,7 +84,7 @@ function AirBnbCard({ data}) {
                             fontSize: "16px",
                             margin: "4px 2px",
                             cursor: "pointer",
-                            boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)",
+                            boxShadow: "0 5px 9px 0 rgba(0,0,0,0.2)",
                             }
                         }
 
