@@ -34,8 +34,8 @@ function HomePage() {
                   style={{ fontSize: "3rem", fontWeight: "semi-bold" }}
                 >Find your next home away from home</h3>
                 <div className="mt-5 m">
-                  <a href="/airbnb" className="btn mx-5 btx btn-lg">Airbnbs</a>
-                  <a href="/hotel" className="btn btx btn-lg">Hotels</a>
+                  <a href="" className="btn mx-5 btx btn-lg">Call Us now</a>
+                  
 
 
                 </div>

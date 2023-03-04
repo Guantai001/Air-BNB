@@ -9,13 +9,15 @@ function AirBnbPage() {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        fetch("http://127.0.0.1:9292/airbnbs")
+        fetch("http://localhost:9292/")
             .then((res) => res.json())
             .then((data) => {
                 setData(data);
-            });
+            }
+            );
     }, []);
-    
+
+
 
     return (
         <div>

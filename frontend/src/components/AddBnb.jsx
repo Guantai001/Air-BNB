@@ -1,111 +1,166 @@
-import React,{useEffect,useState} from "react";
+import React, { useState } from "react";
 import NavBar from "./NavBar";
 
+
+
+
+
 function AddBnb() {
-    // be able to post this data to the bakcend
-   const [airbn , setAirbn] = useState([]);
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [aibnbName, setAirbnbName] = useState("");
+
+    const [admin, setAdmin] = useState("");
+    const [title, setTitle] = useState("");
     const [location, setLocation] = useState("");
+    const [description, setDescription] = useState("");
     const [size, setSize] = useState("");
     const [price, setPrice] = useState("");
-    const [image, setImage] = useState("");
-  
-    const [description, setDescription] = useState("");
+    const [image, setImage] = useState(""); 
+    const [allData, setAllData] = useState([]);
+   
 
-    const handleSubmit = (e) => {
+    const inputAdminHandler = (e) => {
+        setAdmin(e.target.value);
+    };
+    const inputTitleHandler = (e) => {
+        setTitle(e.target.value);
+    };
+    const inputLocationHandler = (e) => {
+        setLocation(e.target.value);
+    };
+    const inputDescriptionHandler = (e) => {
+        setDescription(e.target.value);
+    };
+    const inputSizeHandler = (e) => {
+        setSize(e.target.value);
+    };
+    const inputPriceHandler = (e) => {
+
+        setPrice(e.target.value);
+    };
+    const inputImageHandler = (e) => {
+        setImage(e.target.value);
+    };
+
+    
+    const submitHandler = (e) => {
         e.preventDefault();
-        const data = {
-            name,
-            email,
-            location,
-            size,
-            price,
-            image,
-            description,
-        };
 
-        fetch("http://127.0.0.1:9292/airbnbs" , {
+    setAllData([...allData,
+         {admin, title, location, description, size, price, image}]);
+        setAdmin("");
+        setTitle("");
+        setLocation("");
+        setDescription("");
+        setSize("");
+        setPrice("");
+        setImage("");
+
+       
+        fetch("http://localhost:9292/airbnbs/", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify(data),
+            body: JSON.stringify({admin, title, location, description, size, price, image}),
         })
+
             .then((res) => res.json())
             .then((data) => {
-                setAirbn(data);
-            });
+                console.log(data);
+            }
+            )
+      
     };
 
-    return (
-        <div>
-            <NavBar />
+    console.log(allData);
 
-            <div className="container mt-5 pt-5">
-                <form 
-                onSubmit={handleSubmit}
-                className="w-50 mx-auto" >
-                    <div className="form-group">
+  return (
+    <div>
+      <NavBar />
+      <div className="container mt-5 pt-5">
+        <form
+            // onSubmit={(e) => submitHandler(e)}
+            onSubmit={submitHandler}
+         className="w-50 mx-auto">
+          <div className="form-group">
 
-                 
-                        {/* <label for="name">Name</label>
-                        <input
-                            type="text"
-                            className="form-control"
-                            id="name"
-                            placeholder="Enter name"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                        />
-                    */}
-                        {/* email */}
-                        {/* < label for="email">Email</label>
-                        <input type="email" className="form-control" id="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        placeholder="Enter email" /> */}
+            <label htmlFor="admin">Admin</label>
+            <input
+                type="text"
+                className="form-control"
+                id="admin"
+                name="admin"
+                value={admin}
+                onChange={inputAdminHandler}
+                placeholder="Enter admin"
+            />
 
-                        {/* airbnb name*/}
-                        <label for="airbnb">Airbnb</label>
-                        <input type="text" className="form-control" id="airbnb"
-                            value={aibnbName}
-                            onChange={(e) => setAirbnbName(e.target.value)}
-                         placeholder="Enter airbnb" />
+            <label htmlFor="airbnb">Airbnb</label>
+            <input
+              type="text"
+              className="form-control"
+              id="airbnb"
 
-                        {/* location */}
-                        <label for="location">Location</label>
-                        <input type="text" className="form-control" id="location"
-                            value={location}
-                            onChange={(e) => setLocation(e.target.value)}
-                         placeholder="Enter location" />
+              name="title"
+                value={title}
+                onChange={inputTitleHandler}
+              
+              placeholder="Enter airbnb"
+            />
 
-                        {/* description */}
-                        <label for="description">Description</label>
-                        <input type="text" className="form-control" id="description"
-                            value={description}
-                            onChange={(e) => setDescription(e.target.value)}
-                            placeholder="Enter description" />
+            <label htmlFor="location">Location</label>
+            <input
+                type="text"
+                className="form-control"
+                id="location"
+                name="location"
+                value={location}
+                onChange={inputLocationHandler}
+                
+                placeholder="Enter location"
+            />
 
-                        {/* size and price */}
-                        <label for="size">Size</label>
-                        <input type="text" className="form-control" id="size" 
-                            value={size}
-                            onChange={(e) => setSize(e.target.value)}
-                        placeholder="Enter size" />
 
-                        <label for="price">Price</label>
-                        <input type="text" className="form-control" id="price"
-                            value={price}
-                            onChange={(e) => setPrice(e.target.value)}
-                         placeholder="Enter price" />
+            <label htmlFor="description">Description</label>
+            <input
+              type="text"
+              className="form-control"
+              id="description"
+              name="description"
+                value={description}
+                onChange={inputDescriptionHandler}
+              placeholder="Enter description"
+            />
+
+            <label htmlFor="size">Size</label>
+            <input
+              type="text"
+              className="form-control"
+              id="size"
+              name="size"
+               value={size}
+                onChange={inputSizeHandler}
+
+              placeholder="Enter size"
+            />
+
+            <label htmlFor="price">Price</label>
+            <input
+              type="text"
+              className="form-control"
+              id="price"
+              name="price"
+              value={price}
+                onChange={inputPriceHandler}
+              placeholder="Enter price"/>
 
                         {/* 2 images*/}
                         <label for="image1">Image 1</label>
-                        <input type="file" className="form-control" id="image1" 
-                            value={image}
-                            onChange={(e) => setImage(e.target.value)}
+                        <input 
+                        type= "file"
+                         className="form-control" id="image1" 
+                        name="image"
+                       value={image}
+                        onChange={inputImageHandler}
                         placeholder="Enter image" />
 
                         <button type="submit" className="btn btn-primary w-25 mt-3">Submit</button>
@@ -117,9 +172,5 @@ function AddBnb() {
         </div>
     );
 }
-
-
-
-
 
 export default AddBnb;

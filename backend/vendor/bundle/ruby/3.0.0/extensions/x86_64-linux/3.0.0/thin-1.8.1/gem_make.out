@@ -1,5 +1,5 @@
 current directory: /home/guantai/Downloads/Phase3/Air-BNB/backend/vendor/bundle/ruby/3.0.0/gems/thin-1.8.1/ext/thin_parser
-/usr/bin/ruby3.0 -I /usr/lib/ruby/vendor_ruby -r ./siteconf20230301-26347-6txd4c.rb extconf.rb
+/usr/bin/ruby3.0 -I /usr/lib/ruby/vendor_ruby -r ./siteconf20230303-95851-w03016.rb extconf.rb
 checking for main() in -lc... yes
 creating Makefile
 
@@ -14,4 +14,4 @@ linking shared-object thin_parser.so
 
 current directory: /home/guantai/Downloads/Phase3/Air-BNB/backend/vendor/bundle/ruby/3.0.0/gems/thin-1.8.1/ext/thin_parser
 make DESTDIR\= install
-/usr/bin/install -c -m 0755 thin_parser.so ./.gem.20230301-26347-rspvrk
+/usr/bin/install -c -m 0755 thin_parser.so ./.gem.20230303-95851-hjxvzz

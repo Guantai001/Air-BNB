@@ -313,6 +313,7 @@ img {
   display: inline-block;
   font-size: 20px;
   margin: 2px 1px;
+  margin-top: 9px;
   cursor: pointer;
 }
 

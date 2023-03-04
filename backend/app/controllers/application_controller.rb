@@ -1,63 +1,55 @@
 class ApplicationController < Sinatra::Base
-#  get "/hosts" do
-#     @hosts = Host.all
-#     # tojson
-#     @hosts.to_json
-#   end
+    set :default_content_type, 'application/json'
 
-# get "/airbnbs" do
-#     @airbnbs = Airbnb.all
-#     # tojson
-#     @airbnbs.to_json(include: [:host, :images, :descriptions])
-#   end
 
-#     get "/airbnbs/:id" do
-#         @airbnb = Airbnb.find(params[:id])
-#         @airbnb.to_json(include: [:host, :images, :descriptions])
-#     end
+    get "/" do
+        airbnbs = Airbnb.all
+        airbnbs.to_json(include: [:admin])
+    end
 
-#     # post
-#     post "/airbnbs" do
-#         airbnb = Airbnb.create(
-#             name: params[:name],
-#             location: params[:location],
-#             size: params[:size],
-#             price: params[:price],
-#             host: params[:host],
-#             description: params[:description],
-#             image: params[:image]
+    get "/airbnbs/:id" do
+        airbnbs = Airbnb.find_by(id: params[:id])
+        airbnbs.to_json
+    end
 
-#         )
-#         airbnb.to_json
-#     end
 
-get "/airbnbs" do
-    @airbnbs = Airbnb.all
-    # tojson
-    @airbnbs.to_json(include: [:admin, :reviews])
+    post "/airbnbs/" do
+        airbnb = Airbnb.create(
+            title: params[:title],
+            location: params[:location],
+            description: params[:description],
+            size: params[:size],
+            price: params[:price],
+            image: params[:image],
+            admin: params[:admin_id]
+        )
+        airbnb.to_json
+       {
+            "message": "Airbnb created successfully",
+            "status": "success"
+       }.to_json
+    end
+
+    delete "/airbnbs/:id" do
+        airbnb = Airbnb.find_by(id: params[:id])
+        airbnb.destroy
+        airbnb.to_json
+    end
+
+    patch "/airbnbs/:id" do
+        airbnb = Airbnb.find_by(id: params[:id])
+        airbnb.update(
+            title: params[:title],
+            location: params[:location],
+            description: params[:description],
+            size: params[:size],
+            price: params[:price],
+            image: params[:image],
+            admin: params[:admin_id]
+        )
+        airbnb.to_json
+    end
+
+
 end
 
-get "/airbnbs/:id" do
-    @airbnb = Airbnb.find(params[:id])
-    @airbnb.to_json
-end
-
-# post
-post "/airbnbs" do
-    airbnb = Airbnb.create(
-        name: params[:name],
-        location: params[:location],
-        size: params[:size],
-        price: params[:price],
-        admin: params[:admin],
-        description: params[:description],
-        image: params[:image]
-
-    )
-    airbnb.to_json
-end
-
-
-   
-        
-end

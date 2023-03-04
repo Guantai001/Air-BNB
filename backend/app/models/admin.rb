@@ -1,3 +1,5 @@
 class Admin < ActiveRecord::Base
-    has_many :airbnbs
+    has_many :airbnb
+    has_many :reviews    
+  
 end

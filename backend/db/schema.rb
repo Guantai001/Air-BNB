@@ -10,22 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_02_040233) do
+ActiveRecord::Schema.define(version: 2023_03_02_125743) do
 
   create_table "admins", force: :cascade do |t|
-    t.string "name"
+    t.string "admin"
     t.string "email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "airbnbs", force: :cascade do |t|
-    t.string "name"
+    t.string "title"
     t.string "location"
     t.string "description"
-    t.integer "size"
-    t.integer "price"
-    t.string "image"
+    t.string "size"
+    t.binary "image"
+    t.string "price"
     t.integer "admin_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -33,16 +33,19 @@ ActiveRecord::Schema.define(version: 2023_03_02_040233) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.string "review"
+    t.string "user_name"
+    t.string "user_email"
+    t.string "comment"
     t.integer "rating"
+    t.integer "admin_id"
     t.integer "airbnb_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["admin_id"], name: "index_reviews_on_admin_id"
     t.index ["airbnb_id"], name: "index_reviews_on_airbnb_id"
   end
 
   add_foreign_key "airbnbs", "admins"
+  add_foreign_key "reviews", "admins"
   add_foreign_key "reviews", "airbnbs"
 end
