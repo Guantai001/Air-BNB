@@ -15,6 +15,9 @@ function AddBnb() {
     const [price, setPrice] = useState("");
     const [image, setImage] = useState(""); 
     const [allData, setAllData] = useState([]);
+
+    const [image2, setImage2] = useState("");
+    const [image3, setImage3] = useState("");
    
 
 
@@ -38,6 +41,14 @@ function AddBnb() {
         setImage(e.target.value);
     };
 
+    const inputImage2Handler = (e) => {
+        setImage2(e.target.value);
+    };
+
+    const inputImage3Handler = (e) => {
+        setImage3(e.target.value);
+    };
+
     
     const submitHandler = (e) => {
         e.preventDefault();
@@ -51,6 +62,8 @@ function AddBnb() {
         setSize("");
         setPrice("");
         setImage("");
+        setImage2("");
+        setImage3("");
 
        
         fetch("http://localhost:9292/airbnbs/", {
@@ -58,7 +71,7 @@ function AddBnb() {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({admin, title, location, description, size, price, image}),
+            body: JSON.stringify({admin, title, location, description, size, price, image, image2, image3}),
         })
 
             .then((res) => res.json())
@@ -149,7 +162,7 @@ function AddBnb() {
               placeholder="Enter price"/>
 
                         {/* 2 images*/}
-                        <label for="image1">Image 1</label>
+                        <label for="image1">Image</label>
                         <input 
                         type= "text"
                          className="form-control" id="image1" 
@@ -157,6 +170,26 @@ function AddBnb() {
                        value={image}
                         onChange={inputImageHandler}
                         placeholder="Enter image" />
+
+                        <label for="image2">Image</label>
+                        <input
+                        type= "text"
+                          className="form-control" id="image2"
+                        name="image2"
+                        value={image2}
+                        onChange={inputImage2Handler}
+                        placeholder="Enter image" />
+
+                        <label for="image3">Image</label>
+                        <input
+                        type= "text"
+                          className="form-control" id="image3"
+                        name="image3"
+                        value={image3}
+                        onChange={inputImage3Handler}
+                        placeholder="Enter image" />
+
+
 
                         <button type="submit" className="btn btn-primary w-25 mt-3">Submit</button>
 

@@ -152,11 +152,11 @@ title="Booking"
 </CustomPopup>
 
 <div 
-className="card mt-5"
+className="card mt-5 "
 onClick={() => setVisibility(true)}
 style={{
-    width: "24rem",
-    height: "500px",
+    width: "27rem",
+    height: "100%",
     overflow: "hidden",
     backgroundColor: "#white",
     boxShadow : "0 4px 8px 0 rgba(0,0,0,0.2)",
@@ -164,7 +164,7 @@ style={{
 >
 <img
     src= {data.image}
-    style={{height: "270px", width: "100%"}}
+    style={{height: "260px", width: "100%"}}
     className="card-img-top"alt="..."/>
     <div className="card-body"
     style={{
@@ -172,20 +172,43 @@ style={{
         color: "black",
     }}
     >
+
+<div className="row">
+                        <div className="col">
+                            <img
+                                src={data.image}
+                                style={{ height: "60px", width: "100%" }}
+                                className="card-img-top" alt="..." />
+                        </div>
+                        <div className="col">
+                            <img
+                                src={data.image2}
+                                style={{ height: "60px", width: "100%" }}
+                                className="card-img-top" alt="..." />
+                        </div>
+                        <div className="col">
+                            <img
+                                src={data.image3}
+                                style={{ height: "60px", width: "100%" }}
+                                className="card-img-top" alt="..." />
+                        </div>
+                    </div>
+
         <p className="card-text">Title: {data.title}</p>
         <p className="card-text">Location: {data.location}</p>
-        <p className="card-text">Description:{data.description}</p>
-        <p className="card-text">Price:{data.price}</p>
-        <p className="card-text">Room Size:{data.size}</p>
+        <p className="card-text">Description: {data.description}</p>
+        <p className="card-text">Price: { data.price}</p>
+        <p className="card-text">Room Size: {data.size}</p>
 
 
-        <div className="col mt-4">
+        <div className="col mt-1 mb-2">
             <button
             style={
                 {
                 backgroundColor: "#b95d3f",
                 color: "white",
                 width: "100%",
+                textAlign: "center",
                 height: "40px",
                 borderRadius: "5px",
                 border: "none",
@@ -193,7 +216,6 @@ style={{
                 fontWeight: "bold",
                 cursor: "pointer",
                 outline: "none",
-                marginTop: "5px",
                 boxShadow : "0 5px 9px 0 rgba(0,0,0,0.2)",
                 }
             }
