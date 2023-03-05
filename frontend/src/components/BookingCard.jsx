@@ -3,10 +3,11 @@ import CustomPopup from "./CustomPopup";
 
 function BookingCard({ data}){
 
-    const [user , setUser] = useState({});
-  const [useEmail, setUserEmail] = useState({});
-  const [review, setReview] = useState({});
-  const [rate, setRate] = useState("");
+  const [user , setUser] = useState("");
+  const [email, setEmail] = useState("");
+  const [comment, setComment] = useState("");
+  const [rating, setRating] = useState("");
+//   const [info, setInfo] = useState([]);
 
 
   const inputUserHandler = (e) => {
@@ -14,40 +15,45 @@ function BookingCard({ data}){
     };
 
     const inputUserEmailHandler = (e) => {
-        setUserEmail(e.target.value);
+        setEmail(e.target.value);
         };
 
-        const inputReviewHandler = (e) => {
-            setReview(e.target.value);
-            };
+    const inputCommentHandler = (e) => {
+        setComment(e.target.value);
+        };
 
-            const inputRateHandler = (e) => {
-                setRate(e.target.value);
+
+    const inputRateHandler = (e) => {
+                setRating(e.target.value);
                 };
 
     const submitHandler = (e) => {
         e.preventDefault();
 
-        const info = {
+        const datat = {
             user: user,
-            email: useEmail,
-            review: review,
-            rate: rate,
-        };
+            email: email,
+            comment: comment,
+            rating: rating,
+            data: data,
+        }
 
-        console.log(info);
+    //  setInfo([...info,
+    //     {user, email, comment, rating ,
+         
+    //     }]);
         setUser("");
-        setUserEmail("");
-        setReview("");
-        setRate("");
+        setEmail("");
+        setComment("");
+        setRating(0);
 
-        fetch("http://localhost:9292/reviews", {
+        fetch("http://localhost:9292/reviews/", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify(info),
-        })
+            body: JSON.stringify(datat),
+      })
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
@@ -79,40 +85,48 @@ title="Booking"
     
     <form onSubmit={submitHandler}>
 
-    <div className="form-group">
+    <div className="form-group mt-3">
         <label htmlFor="exampleInputEmail1">User</label>
         <input
         type="text"
         className="form-control"
-        id="exampleInputEmail1"
+        id="exampleInputname"
         value={user}
+        name = "user"
+        placeholder="Enter user"
         onChange={inputUserHandler}
         />
    
-        <label htmlFor="exampleInputEmail1">Email address</label>
+        <label htmlFor="exampleInputEmail">Email address</label>
         <input
         type="email"
         className="form-control"
-        id="exampleInputEmail1"
-        value={useEmail}
+        id="exampleInputEmail"
+        value={email}
+        name = "email"
+        placeholder="Enter email"
         onChange={inputUserEmailHandler}
         />
   
-        <label htmlFor="exampleInputPassword1">Your Expectations</label>
+        <label htmlFor="exampleInputComment">Your Expectations</label>
         <input
         type="text"
         className="form-control"
-        id="exampleInputPassword1"
-        value={review}
-        onChange={inputReviewHandler}
+        id="exampleInputComment"
+        value={comment}
+        name = "comment"
+        placeholder="Enter your expectations"
+        onChange={inputCommentHandler}
         />
  
-        <label htmlFor="exampleInputPassword1">Rate</label>
+        <label htmlFor="exampleInputRate">Rate</label>
         <input
-        type="text"
+        type="number"
         className="form-control"
-        id="exampleInputPassword1"
-        value={rate}
+        id="exampleInputRate"
+        value={rating}
+        name = "rate"
+        placeholder="Enter your rate"
         onChange={inputRateHandler}
         />
     </div>
@@ -122,7 +136,7 @@ title="Booking"
         backgroundColor: "#f5a623",
         color: "white",
         border: "none",
-        width: "50%",
+        width: "40%",
         height: "50px",
         fontSize: "20px",
         fontWeight: "bold",
@@ -180,6 +194,7 @@ style={{
                 cursor: "pointer",
                 outline: "none",
                 marginTop: "5px",
+                boxShadow : "0 5px 9px 0 rgba(0,0,0,0.2)",
                 }
             }
             onClick={() => setVisibility(true)}

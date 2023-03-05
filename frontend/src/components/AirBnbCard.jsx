@@ -17,6 +17,24 @@ function AirBnbCard({ data}) {
         });
     };
 
+    // create an edit function
+    const editAirBnb = (e) => {
+        // fetch the edit route
+        fetch(`http://localhost:9292/airbnbs/${data.id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({title: "new title"}),
+        })
+        .then((res) => res.json())
+        .then((data) => {
+            document.location.reload();
+            console.log(data);
+        });
+    };
+
+
 
 
 
@@ -51,6 +69,7 @@ function AirBnbCard({ data}) {
                 <div className="row mt-4">
                     <div className="col">
                         <button
+                        onClick={editAirBnb}
                         style={
                             {backgroundColor: "#b95d3f",
                             color: "white",
