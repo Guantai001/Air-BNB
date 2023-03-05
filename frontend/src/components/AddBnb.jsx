@@ -151,7 +151,7 @@ function AddBnb() {
                         {/* 2 images*/}
                         <label for="image1">Image 1</label>
                         <input 
-                        type= "file"
+                        type= "text"
                          className="form-control" id="image1" 
                         name="image"
                        value={image}
