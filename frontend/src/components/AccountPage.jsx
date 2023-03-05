@@ -10,7 +10,7 @@ function AccountPage() {
   const [getBooking, setGetBooking] = useState([]);
   const { id } = useParams();
 
-  
+
 
   useEffect(() => {
     fetch("http://localhost:9292/review")
@@ -21,7 +21,7 @@ function AccountPage() {
   }, []);
 
   function handleDelete(id) {
-    fetch(`http://localhost:9292/bookings/${id}`, {
+    fetch(`http://localhost:9292/reviews/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
