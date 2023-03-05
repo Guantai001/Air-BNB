@@ -1,77 +1,77 @@
-// import React from "react";
-// import NavBar from "./NavBar";
-
-// function AccountPage() {
-//     return (
-//         <div>
-//         <NavBar/>
-//         <h1
-//         style={{textAlign:"center", marginTop:"100px"}}
-//         >Account Page</h1>
-//         </div>
-//     );
-//     }
-
-// export default AccountPage;
-
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import NavBar from './NavBar';
+//parmas
+import { useParams } from 'react-router-dom';
 
 
 function AccountPage() {
-  const [name, setName] = useState('John Doe');
-  const [email, setEmail] = useState('john.doe@example.com');
-  const [phone, setPhone] = useState('123-456-7890');
-  const [address, setAddress] = useState('123 Main St');
 
-  const handleNameChange = (event) => {
-    setName(event.target.value);
-  };
+  const [getBooking, setGetBooking] = useState([]);
+  const { id } = useParams();
 
-  const handleEmailChange = (event) => {
-    setEmail(event.target.value);
-  };
+  
 
-  const handlePhoneChange = (event) => {
-    setPhone(event.target.value);
-  };
+  useEffect(() => {
+    fetch("http://localhost:9292/review")
+      .then((res) => res.json())
+      .then((data) => {
+        setGetBooking(data);
+      });
+  }, []);
 
-  const handleAddressChange = (event) => {
-    setAddress(event.target.value);
-  };
+  function handleDelete(id) {
+    fetch(`http://localhost:9292/bookings/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        document.location.reload();
+        console.log(data);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // handle form submission
-  };
+        setGetBooking(getBooking.filter((booking) => booking.id !== id));
+      });
+  }
 
   return (
     <>
     <NavBar />
     <div className="account-page mt-5 pt-5">
       <h2 className="text-center mb-4">Account Details</h2>
-      <Form onSubmit={handleSubmit}>
-        <Form.Group controlId="formBasicName">
-          <Form.Label>Name</Form.Label>
-          <Form.Control type="text" placeholder="Enter name" value={name} onChange={handleNameChange} />
-        </Form.Group>
-        <Form.Group controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
-          <Form.Control type="email" placeholder="Enter email" value={email} onChange={handleEmailChange} />
-        </Form.Group>
-        <Form.Group controlId="formBasicPhone">
-          <Form.Label>Phone number</Form.Label>
-          <Form.Control type="tel" placeholder="Enter phone number" value={phone} onChange={handlePhoneChange} />
-        </Form.Group>
-        <Form.Group controlId="formBasicAddress">
-          <Form.Label>Address</Form.Label>
-          <Form.Control as="textarea" rows={3} placeholder="Enter address" value={address} onChange={handleAddressChange} />
-        </Form.Group>
-        <Button variant="primary" type="submit">
-          Save
-        </Button>
-      </Form>
+ 
+      <div className="container mx-auto text-center row p-1 ">
+            <table className="table table-striped table-hover table-bordered col-12">
+                <thead>
+                    <tr>
+                       
+                        <th scope="col">Movie Title</th>
+                        <th scope="col">Comments</th>
+                        <th scope="col">Rating</th>
+                        <th scope="col">Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    {getBooking.map((booking) => (
+                        <tr key={booking.id}>
+                            <td>{booking.movie_title}</td>
+                            <td>{booking.comment}</td>
+                            <td>{booking.rating}</td>
+                            <td>
+                                <button
+                                    className="btn btn-danger"
+                                    onClick={() => handleDelete(booking.id)}
+                                >
+                                    Delete
+                                </button>
+                            </td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+
+            </div>
+
     </div>
     </>
   );

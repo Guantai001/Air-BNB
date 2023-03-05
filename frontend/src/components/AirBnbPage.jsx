@@ -27,7 +27,7 @@ function AirBnbPage() {
         <div className="row mt-5">
             {data.map((data) => (
                 <div className="col-md-4 mb-4 pb-2">
-                    <AirBnbCard data={data} />
+                    <AirBnbCard key= {data.id}data={data} />
                     </div>
             ))}
         </div>

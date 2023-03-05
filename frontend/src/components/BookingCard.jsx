@@ -1,13 +1,19 @@
 import React,{useState} from "react";
 import CustomPopup from "./CustomPopup";
+import swal from "sweetalert";
+import { useParams } from 'react-router-dom';
 
-function BookingCard({ data}){
+function BookingCard({ data,setdata}){
 
   const [user , setUser] = useState("");
   const [email, setEmail] = useState("");
   const [comment, setComment] = useState("");
   const [rating, setRating] = useState("");
-//   const [info, setInfo] = useState([]);
+  const [info, setInfo] = useState([]);
+  const [clicked, setClicked] = useState(false);
+  const { id } = useParams();
+
+
 
 
   const inputUserHandler = (e) => {
@@ -30,22 +36,27 @@ function BookingCard({ data}){
     const submitHandler = (e) => {
         e.preventDefault();
 
-        const datat = {
+// if the book is booked disable the button
+
+
+      const datat = {
             user: user,
             email: email,
             comment: comment,
             rating: rating,
-            data: data,
+            data: data.airbnb_id,
+            title: data.airbnb_id,
+            data: data.title,
+            id : id,
+
         }
 
-    //  setInfo([...info,
-    //     {user, email, comment, rating ,
-         
-    //     }]);
         setUser("");
         setEmail("");
         setComment("");
         setRating(0);
+
+
 
         fetch("http://localhost:9292/reviews/", {
             method: "POST",
@@ -66,6 +77,10 @@ function BookingCard({ data}){
     const popupCloseHandler = () => {
       setVisibility(false);
     };
+
+    // disable the button if the book is booked
+
+
   
 
     return (
@@ -77,6 +92,7 @@ onClose={popupCloseHandler}
 show={visibility}
 title="Booking"
 >
+    <p>Booked by: {id}</p>
     <p>Airbnb: {data.title}</p>
     <p>Location: {data.location}</p>
     <p>Price: {data.price}</p>
@@ -133,7 +149,7 @@ title="Booking"
 
     <button 
     style={{
-        backgroundColor: "#f5a623",
+        backgroundColor: "#b95d3f",
         color: "white",
         border: "none",
         width: "40%",
@@ -197,12 +213,13 @@ style={{
         <p className="card-text">Title: {data.title}</p>
         <p className="card-text">Location: {data.location}</p>
         <p className="card-text">Description: {data.description}</p>
-        <p className="card-text">Price: { data.price}</p>
+        <p className="card-text">Price: { data.price} Ksh</p>
         <p className="card-text">Room Size: {data.size}</p>
 
 
         <div className="col mt-1 mb-2">
             <button
+            class = "btnx"
             style={
                 {
                 backgroundColor: "#b95d3f",
@@ -220,6 +237,8 @@ style={{
                 }
             }
             onClick={() => setVisibility(true)}
+        
+        
             >Book</button>
        </div>
             </div>

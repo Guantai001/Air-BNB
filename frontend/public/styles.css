@@ -60,6 +60,7 @@ body {
 
 .background__nav {
   background-color:#b95d3f;
+  color: #fff;
 }
 
 h1, h2, p {
@@ -70,10 +71,12 @@ ul {
   margin: 0;
   padding: 0;
   list-style: none;
+  color: #fff;
 }
 
 a {
   text-decoration: none;
+  color: #fff;
 }
 
 img {
@@ -122,6 +125,7 @@ img {
   position: fixed;
   top: 0;
   left: 0;
+  color: #fff;
   z-index: var(--z-fixed);
   background-color: #b95d3f;
   box-shadow: 0 1px 4px rgba(146, 161, 176, 0.15);
@@ -131,11 +135,14 @@ img {
 .nav {
   height: var(--header-height);
   display: flex;
+  color: #ffffff;
   justify-content: space-between;
   align-items: center;
   font-weight: var(--font-semi);
 }
-
+.navBar {
+  color: #fff !important;
+}
 @media screen and (max-width: 767px) {
 /* the slide part */
   .nav__menu {
@@ -152,6 +159,7 @@ img {
 
 .nav__item {
   margin-bottom: var(--mb-4);
+  color: #fff;
 }
 
 .nav__link {
@@ -344,3 +352,6 @@ img {
   margin-top: 20px;
 }
 
+.nav__menu {
+  color: #fff;
+}

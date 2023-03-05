@@ -26,7 +26,7 @@ function Booking() {
         <div className="row mt-5">
             {data.map((data) => (
                 <div className="col-md-4 mb-4">
-                    <BookingCard key= {data.id} data={data} />
+                    <BookingCard key= {data.id} data={data} setData={setData} />
                     </div>
             ))}
         </div>

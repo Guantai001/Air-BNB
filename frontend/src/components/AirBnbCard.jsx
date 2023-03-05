@@ -53,6 +53,7 @@ function AirBnbCard({ data}) {
             size: size,
             price: price,
             image: image,
+            data: data.airbnb_id
         }
 
         fetch(`http://localhost:9292/airbnbs/${data.id}`, {
@@ -154,8 +155,31 @@ function AirBnbCard({ data}) {
                     value={image}
                     onChange={inputImageHandler}
                     />
+
+                    <label htmlFor="image2">Image2</label>
+                    <input
+                    type="text"
+                    className="form-control"
+                    id="image2"
+                    value={image2}
+                    onChange={inputImage2Handler}
+                    />
+
+                    <label htmlFor="image3">Image3</label>
+                    <input
+                    type="text"
+                    className="form-control"
+                    id="image3"
+                    value={image3}
+                    onChange={inputImage3Handler}
+                    />
                 </div>
-                <button type="submit" className="btn btn-primary">Submit</button>
+                <button 
+                style={{
+                    backgroundColor: "#b95d3f",
+                }
+                }
+                type="submit" className="btn btn-primary">Submit</button>
             </form>
         </CustomPopup>
 
@@ -209,7 +233,7 @@ function AirBnbCard({ data}) {
                 <p className="card-text">Title: {data.title}</p>
                 <p className="card-text">Location: {data.location}</p>
                 <p className="card-text">Description: {data.description}</p>
-                <p className="card-text">Price:{ data.price}</p>
+                <p className="card-text">Price:{ data.price} Ksh</p>
                 <p className="card-text">Room Size: {data.size}</p>
             
                 <div className="row mt-4">

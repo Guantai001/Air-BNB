@@ -1,11 +1,16 @@
 import React, { useState } from "react";
 import NavBar from "./NavBar";
+import { useParams } from 'react-router-dom';
 
 
 
 
 
 function AddBnb() {
+
+  const { id } = useParams();
+
+  
 
     const [admin, setAdmin] = useState("");
     const [title, setTitle] = useState("");
@@ -15,7 +20,6 @@ function AddBnb() {
     const [price, setPrice] = useState("");
     const [image, setImage] = useState(""); 
     const [allData, setAllData] = useState([]);
-
     const [image2, setImage2] = useState("");
     const [image3, setImage3] = useState("");
    
