@@ -42,7 +42,10 @@ There are no known bugs at the moment.
 
 If you run into any issues or have questions, ideas or concerns, please contact me at [email protected]
 
-## Vide
+## Video Demo
+
+[![AirBnb Project](https://img.youtube.com/vi/https://youtu.be/4Z7Q9Z1ZQqM/0.jpg)](https://youtu.be/https://youtu.be/4Z7Q9Z1ZQqM)
+
 
 ### License
 
@@ -50,9 +53,8 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Authors
 
-* **Guantai John** - *Initial work* - [Guantai John]( 
+* **Guantai John** - *Initial work* - [Guantai John]
 
-)
 
 ## Acknowledgments
 
