@@ -44,7 +44,7 @@ If you run into any issues or have questions, ideas or concerns, please contact 
 
 ## Video Demo
 
-[![AirBnb Project](https://img.youtube.com/vi/https://youtu.be/4Z7Q9Z1ZQqM/0.jpg)](https://youtu.be/https://youtu.be/4Z7Q9Z1ZQqM)
+[![AirBnb Project]](https://drive.google.com/file/d/1vVAjcEu8UEbqOx1kBUnMfzFYnl-uA9Nd/view)
 
 
 ### License
