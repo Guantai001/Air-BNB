@@ -1,6 +1,6 @@
 import React,{useState} from "react";
 import CustomPopup from "./CustomPopup";
-import swal from "sweetalert";
+import Swal from 'sweetalert2';
 import { useParams } from 'react-router-dom';
 
 function BookingCard({ data,setdata}){
@@ -14,7 +14,13 @@ function BookingCard({ data,setdata}){
   const { id } = useParams();
 
 
-
+  const successAlert = () => {
+    Swal.fire({  
+        title: 'Booked!',  
+        text: 'Book Successul.',
+        icon: 'success'
+      }); 
+}
 
   const inputUserHandler = (e) => {
     setUser(e.target.value);
@@ -68,8 +74,10 @@ function BookingCard({ data,setdata}){
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
+               successAlert();
             }
             )
+         
 
     };
     const [visibility, setVisibility] = useState(false);
@@ -160,7 +168,9 @@ title="Booking"
         marginTop: "20px",
 
     }}
-    type="submit" className="btn btn-primary">
+    type="submit" 
+    // onClick={successAlert}
+    className="btn btn-primary">
         Submit
     </button>
 </form>

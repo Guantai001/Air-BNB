@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import NavBar from "./NavBar";
 import { useParams } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 
 
@@ -8,8 +9,15 @@ import { useParams } from 'react-router-dom';
 
 function AddBnb() {
 
-  const { id } = useParams();
+ 
 
+  const successAlert = () => {
+    Swal.fire({  
+        title: 'Succes!',  
+        text: 'AirBnb Added Successul.',
+        icon: 'success'
+      }); 
+}
 
 
     const [admin, setAdmin] = useState("");
@@ -81,6 +89,7 @@ function AddBnb() {
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
+                successAlert();
             }
             )
       
