@@ -149,7 +149,7 @@ title="Booking"
 
     <button 
     style={{
-        backgroundColor: "#b95d3f",
+        backgroundColor: "cdf",
         color: "white",
         border: "none",
         width: "40%",

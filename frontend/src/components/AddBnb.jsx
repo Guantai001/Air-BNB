@@ -10,7 +10,7 @@ function AddBnb() {
 
   const { id } = useParams();
 
-  
+
 
     const [admin, setAdmin] = useState("");
     const [title, setTitle] = useState("");
@@ -195,7 +195,11 @@ function AddBnb() {
 
 
 
-                        <button type="submit" className="btn btn-primary w-25 mt-3">Submit</button>
+                        <button type="submit"
+                        style={{
+                            backgroundColor: "#b95d3f",
+                        }}
+                         className="btn  w-25 mt-3">Submit</button>
 
                     </div>
                 </form>

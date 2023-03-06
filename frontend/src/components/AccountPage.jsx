@@ -44,7 +44,7 @@ function AccountPage() {
                 <thead>
                     <tr>
                        
-                        <th scope="col">Movie Title</th>
+                        <th scope="col">Title</th>
                         <th scope="col">Comments</th>
                         <th scope="col">Rating</th>
                         <th scope="col">Delete</th>
