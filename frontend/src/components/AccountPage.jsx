@@ -44,7 +44,7 @@ function AccountPage() {
                 <thead>
                     <tr>
                        
-                        <th scope="col">Title</th>
+                        <th scope="col">AirBnb</th>
                         <th scope="col">Comments</th>
                         <th scope="col">Rating</th>
                         <th scope="col">Delete</th>
@@ -54,7 +54,7 @@ function AccountPage() {
 
                     {getBooking.map((booking) => (
                         <tr key={booking.id}>
-                            <td>{booking.movie_title}</td>
+                            <td>{booking.Airbnb}</td>
                             <td>{booking.comment}</td>
                             <td>{booking.rating}</td>
                             <td>
