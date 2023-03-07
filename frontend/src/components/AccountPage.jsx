@@ -1,16 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Form, Button } from 'react-bootstrap';
 import NavBar from './NavBar';
-//parmas
-import { useParams } from 'react-router-dom';
 
 
 function AccountPage() {
 
   const [getBooking, setGetBooking] = useState([]);
-  const { id } = useParams();
-
-
 
   useEffect(() => {
     fetch("http://localhost:9292/review")
@@ -43,7 +37,6 @@ function AccountPage() {
             <table className="table table-striped table-hover table-bordered col-12">
                 <thead>
                     <tr>
-                       
                         <th scope="col">AirBnb</th>
                         <th scope="col">Comments</th>
                         <th scope="col">Rating</th>
@@ -54,7 +47,8 @@ function AccountPage() {
 
                     {getBooking.map((booking) => (
                         <tr key={booking.id}>
-                            <td>{booking.Airbnb}</td>
+
+                            <td>{booking.airbnb_id}</td>
                             <td>{booking.comment}</td>
                             <td>{booking.rating}</td>
                             <td>

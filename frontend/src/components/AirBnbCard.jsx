@@ -3,7 +3,7 @@ import CustomPopup from "./EditCustomPopUp";
 
 
 
-function AirBnbCard({ data}) {
+function AirBnbCard({airbnb}) {
 
     const [title, setTitle] = useState("");
     const [location, setLocation] = useState("");
@@ -13,11 +13,18 @@ function AirBnbCard({ data}) {
     const [image, setImage] = useState(""); 
     const [image2, setImage2] = useState("");
     const [image3, setImage3] = useState("");
+   
+
+    // const handlechange = (e) => {
+    //     setAllData({ ...allData, [e.target.name]: e.target.value });
+    // };
+    
     
   
     
     const inputTitleHandler = (e) => {
         setTitle(e.target.value);
+
     };
     const inputLocationHandler = (e) => {
         setLocation(e.target.value);
@@ -53,10 +60,11 @@ function AirBnbCard({ data}) {
             size: size,
             price: price,
             image: image,
-            data: data.airbnb_id
+            image2: image2,
+            image3: image3,
         }
 
-        fetch(`http://localhost:9292/airbnbs/${data.id}`, {
+        fetch(`http://localhost:9292/airbnbs/${airbnb.id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
@@ -73,7 +81,7 @@ function AirBnbCard({ data}) {
     // create a delete function
     const deleteAirBnb = (e) => {
         // fetch the delete route
-        fetch(`http://localhost:9292/airbnbs/${data.id}`, {
+        fetch(`http://localhost:9292/airbnbs/${airbnb.id}`, {
             method: "DELETE",
         })
         .then((res) => res.json())
@@ -102,7 +110,8 @@ function AirBnbCard({ data}) {
                     type="text"
                     className="form-control"
                     id="title"
-                    value={title}
+                    value={airbnb.title}
+                    
                     onChange={inputTitleHandler}
                     />
                 </div>
@@ -112,7 +121,7 @@ function AirBnbCard({ data}) {
                     type="text"
                     className="form-control"
                     id="location"
-                    value={location}
+                    value={airbnb.location}
                     onChange={inputLocationHandler}
                     />
                 </div>
@@ -122,7 +131,7 @@ function AirBnbCard({ data}) {
                     type="text"
                     className="form-control"
                     id="description"
-                    value={description}
+                    value={airbnb.description}
                     onChange={inputDescriptionHandler}
                     />
                 </div>
@@ -132,7 +141,7 @@ function AirBnbCard({ data}) {
                     type="text"
                     className="form-control"
                     id="size"
-                    value={size}
+                    value={airbnb.size}
                     onChange={inputSizeHandler}
                     />
                 </div>
@@ -142,7 +151,7 @@ function AirBnbCard({ data}) {
                     type="text"
                     className="form-control"
                     id="price"
-                    value={price}
+                    value={airbnb.price}
                     onChange={inputPriceHandler}
                     />
                 </div>
@@ -152,7 +161,7 @@ function AirBnbCard({ data}) {
                     type="text"
                     className="form-control"
                     id="image"
-                    value={image}
+                    value={airbnb.image}
                     onChange={inputImageHandler}
                     />
 
@@ -161,7 +170,7 @@ function AirBnbCard({ data}) {
                     type="text"
                     className="form-control"
                     id="image2"
-                    value={image2}
+                    value={airbnb.image2}
                     onChange={inputImage2Handler}
                     />
 
@@ -170,7 +179,7 @@ function AirBnbCard({ data}) {
                     type="text"
                     className="form-control"
                     id="image3"
-                    value={image3}
+                    value={airbnb.image3}
                     onChange={inputImage3Handler}
                     />
                 </div>
@@ -197,7 +206,7 @@ function AirBnbCard({ data}) {
           
              }}>
             <img 
-            src={data.image}
+            src={airbnb.image}
             style={{height: "260px", width: "100%"}}
             className="card-img-top"alt="..."/>
             <div className="card-body"
@@ -212,29 +221,29 @@ function AirBnbCard({ data}) {
                     <div className="row">
                         <div className="col">
                             <img
-                                src={data.image}
+                                src={airbnb.image}
                                 style={{ height: "60px", width: "100%" }}
                                 className="card-img-top" alt="..." />
                         </div>
                         <div className="col">
                             <img
-                                src={data.image2}
+                                src={airbnb.image2}
                                 style={{ height: "60px", width: "100%" }}
                                 className="card-img-top" alt="..." />
                         </div>
                         <div className="col">
                             <img
-                                src={data.image3}
+                                src={airbnb.image3}
                                 style={{ height: "60px", width: "100%" }}
                                 className="card-img-top" alt="..." />
                         </div>
                     </div>
 
-                <p className="card-text">Title: {data.title}</p>
-                <p className="card-text">Location: {data.location}</p>
-                <p className="card-text">Description: {data.description}</p>
-                <p className="card-text">Price:{ data.price} Ksh</p>
-                <p className="card-text">Room Size: {data.size}</p>
+                <p className="card-text">Title: {airbnb.title}</p>
+                <p className="card-text">Location: {airbnb.location}</p>
+                <p className="card-text">Description: {airbnb.description}</p>
+                <p className="card-text">Price:{ airbnb.price} Ksh</p>
+                <p className="card-text">Room Size: {airbnb.size}</p>
             
                 <div className="row mt-4">
                     <div className="col">

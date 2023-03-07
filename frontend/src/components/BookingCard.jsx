@@ -3,15 +3,14 @@ import CustomPopup from "./CustomPopup";
 import Swal from 'sweetalert2';
 import { useParams } from 'react-router-dom';
 
-function BookingCard({ data,setdata}){
+function BookingCard({ airbnb}){
 
   const [user , setUser] = useState("");
   const [email, setEmail] = useState("");
   const [comment, setComment] = useState("");
   const [rating, setRating] = useState("");
-  const [info, setInfo] = useState([]);
-  const [clicked, setClicked] = useState(false);
-  const { id } = useParams();
+
+  const {id } = useParams();
 
 
   const successAlert = () => {
@@ -50,11 +49,7 @@ function BookingCard({ data,setdata}){
             email: email,
             comment: comment,
             rating: rating,
-            data: data.airbnb_id,
-            title: data.airbnb_id,
-            data: data.title,
-            id : id,
-
+            airbnb_id:airbnb.id
         }
 
         setUser("");
@@ -86,11 +81,6 @@ function BookingCard({ data,setdata}){
       setVisibility(false);
     };
 
-    // disable the button if the book is booked
-
-
-  
-
     return (
 
 <>
@@ -101,11 +91,11 @@ show={visibility}
 title="Booking"
 >
     <p>Booked by: {id}</p>
-    <p>Airbnb: {data.title}</p>
-    <p>Location: {data.location}</p>
-    <p>Price: {data.price}</p>
-    <p>Size: {data.size}</p>
-    <p>Description: {data.description}</p>
+    <p>Airbnb: {airbnb.title}</p>
+    <p>Location: {airbnb.location}</p>
+    <p>Price: {airbnb.price}</p>
+    <p>Size: {airbnb.size}</p>
+    <p>Description: {airbnb.description}</p>
     
     <form onSubmit={submitHandler}>
 
@@ -189,7 +179,7 @@ style={{
 }}
 >
 <img
-    src= {data.image}
+    src= {airbnb.image}
     style={{height: "260px", width: "100%"}}
     className="card-img-top"alt="..."/>
     <div className="card-body"
@@ -202,29 +192,29 @@ style={{
 <div className="row">
                         <div className="col">
                             <img
-                                src={data.image}
+                                src={airbnb.image}
                                 style={{ height: "60px", width: "100%" }}
                                 className="card-img-top" alt="..." />
                         </div>
                         <div className="col">
                             <img
-                                src={data.image2}
+                                src={airbnb.image2}
                                 style={{ height: "60px", width: "100%" }}
                                 className="card-img-top" alt="..." />
                         </div>
                         <div className="col">
                             <img
-                                src={data.image3}
+                                src={airbnb.image3}
                                 style={{ height: "60px", width: "100%" }}
                                 className="card-img-top" alt="..." />
                         </div>
                     </div>
 
-        <p className="card-text">Title: {data.title}</p>
-        <p className="card-text">Location: {data.location}</p>
-        <p className="card-text">Description: {data.description}</p>
-        <p className="card-text">Price: { data.price} Ksh</p>
-        <p className="card-text">Room Size: {data.size}</p>
+        <p className="card-text">Title: {airbnb.title}</p>
+        <p className="card-text">Location: {airbnb.location}</p>
+        <p className="card-text">Description: {airbnb.description}</p>
+        <p className="card-text">Price: { airbnb.price} Ksh</p>
+        <p className="card-text">Room Size: {airbnb.size}</p>
 
 
         <div className="col mt-1 mb-2">
