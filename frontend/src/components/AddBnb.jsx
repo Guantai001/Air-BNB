@@ -1,15 +1,8 @@
 import React, { useState } from "react";
 import NavBar from "./NavBar";
-import { useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
-
-
-
-
 function AddBnb() {
-
- 
 
   const successAlert = () => {
     Swal.fire({  
@@ -64,6 +57,18 @@ function AddBnb() {
     
     const submitHandler = (e) => {
         e.preventDefault();
+        // if all are not filled alert and not submit
+        if (title === "" || location === "" || description === "" || size === "" || price === "" || image === "" || image2 === "" || image3 === "") {
+            Swal.fire({
+                title: 'Error!',
+                text: 'Please fill all the fields',
+                icon: 'error',
+                confirmButtonText: 'Ok'
+            })
+            return;
+        }
+
+
 
     setAllData([...allData,
          {admin, title, location, description, size, price, image}]);

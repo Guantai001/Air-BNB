@@ -41,15 +41,22 @@ function BookingCard({ airbnb}){
     const submitHandler = (e) => {
         e.preventDefault();
 
-// if the book is booked disable the button
-
-
+        if (user === "" || email === "" || comment === "" || rating === 0) {
+            Swal.fire({  
+                title: 'Error!',  
+                text: 'Please fill all the fields.',
+                icon: 'error'
+              }); 
+            return;
+        }
       const datat = {
             user: user,
             email: email,
             comment: comment,
             rating: rating,
-            airbnb_id:airbnb.id
+            airbnb_id: airbnb.id,
+         
+           
         }
 
         setUser("");

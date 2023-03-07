@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import NavBar from './NavBar';
+import User from './User';
+
 
 
 function AccountPage() {
@@ -11,6 +13,7 @@ function AccountPage() {
       .then((res) => res.json())
       .then((data) => {
         setGetBooking(data);
+        console.log(data);
       });
   }, []);
 
@@ -21,8 +24,7 @@ function AccountPage() {
       .then((res) => res.json())
       .then((data) => {
         document.location.reload();
-        console.log(data);
-
+      
         setGetBooking(getBooking.filter((booking) => booking.id !== id));
       });
   }
@@ -30,6 +32,7 @@ function AccountPage() {
   return (
     <>
     <NavBar />
+    <User/>
     <div className="account-page mt-5 pt-5">
       <h2 className="text-center mb-4">Account Details</h2>
  
@@ -38,6 +41,7 @@ function AccountPage() {
                 <thead>
                     <tr>
                         <th scope="col">AirBnb</th>
+                        <th scope="col">User</th>
                         <th scope="col">Comments</th>
                         <th scope="col">Rating</th>
                         <th scope="col">Delete</th>
@@ -47,8 +51,8 @@ function AccountPage() {
 
                     {getBooking.map((booking) => (
                         <tr key={booking.id}>
-
-                            <td>{booking.airbnb_id}</td>
+                            <td>{booking.airbnb.title}</td>
+                            <td>{booking.user}</td>
                             <td>{booking.comment}</td>
                             <td>{booking.rating}</td>
                             <td>

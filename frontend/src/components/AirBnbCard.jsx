@@ -14,13 +14,6 @@ function AirBnbCard({airbnb}) {
     const [image2, setImage2] = useState("");
     const [image3, setImage3] = useState("");
    
-
-    // const handlechange = (e) => {
-    //     setAllData({ ...allData, [e.target.name]: e.target.value });
-    // };
-    
-    
-  
     
     const inputTitleHandler = (e) => {
         setTitle(e.target.value);
